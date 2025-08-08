@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India General Knowledge Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-box">
+            <h1>🇮🇳 India General Knowledge Quiz</h1>
+            <p class="subtitle">Test your knowledge about India!</p>
+            
+            <form action="/start" method="POST" class="signup-form">
+                <h2>Sign Up to Start</h2>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required 
+                           placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="Enter your email">
+                </div>
+                <button type="submit" class="btn btn-primary">Start Quiz</button>
+            </form>
+            
+            <div class="info-box">
+                <h3>Quiz Rules:</h3>
+                <ul>
+                    <li>10 questions about India</li>
+                    <li>Each question has 4 options</li>
+                    <li>Select the best answer</li>
+                    <li>Your session will be active for 30 minutes</li>
+                    <li>See your results at the end</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

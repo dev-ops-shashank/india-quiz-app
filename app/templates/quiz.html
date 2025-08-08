@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - India GK</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-box">
+            <div class="quiz-header">
+                <h2>Welcome, {{ user_name }}!</h2>
+                <p class="progress">Question {{ question_number }} of {{ total_questions }}</p>
+            </div>
+            
+            <div class="question-box">
+                <h3>{{ question.question }}</h3>
+                
+                <form action="/submit_answer" method="POST" class="options-form">
+                    {% for option in question.options %}
+                    <div class="option">
+                        <input type="radio" id="option{{ loop.index }}" 
+                               name="answer" value="{{ option }}" required>
+                        <label for="option{{ loop.index }}">{{ option }}</label>
+                    </div>
+                    {% endfor %}
+                    
+                    <button type="submit" class="btn btn-primary">Next Question</button>
+                </form>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill progress-{{ question_number }}"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

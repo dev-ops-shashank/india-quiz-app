@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results - India GK</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-box">
+            <h1>Quiz Completed!</h1>
+            <h2>Congratulations, {{ user_name }}!</h2>
+            
+            <div class="score-box">
+                <h3>Your Score</h3>
+                <p class="score">{{ score }} / {{ total }}</p>
+                <p class="percentage">{{ "%.1f"|format(percentage) }}%</p>
+                
+                {% if percentage >= 80 %}
+                <p class="message excellent">Excellent! You know India very well! 🏆</p>
+                {% elif percentage >= 60 %}
+                <p class="message good">Good job! Keep learning! 👍</p>
+                {% elif percentage >= 40 %}
+                <p class="message average">Not bad! Room for improvement! 📚</p>
+                {% else %}
+                <p class="message needs-improvement">Keep practicing! You'll do better next time! 💪</p>
+                {% endif %}
+            </div>
+            
+            <div class="answers-review">
+                <h3>Review Your Answers</h3>
+                {% for answer in answers %}
+                <div class="answer-item {% if answer.is_correct %}correct{% else %}incorrect{% endif %}">
+                    <p class="question-text">Q{{ loop.index }}: {{ answer.question }}</p>
+                    <p>Your answer: <span class="user-answer">{{ answer.user_answer }}</span></p>
+                    {% if not answer.is_correct %}
+                    <p>Correct answer: <span class="correct-answer">{{ answer.correct_answer }}</span></p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            
+            <a href="/restart" class="btn btn-primary">Take Quiz Again</a>
+        </div>
+    </div>
+</body>
+</html>
