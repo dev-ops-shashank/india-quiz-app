@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_GITHUB_USERNAME/india-quiz-app
+    repoURL: https://github.com/dev-ops-shashank/india-quiz-app
     targetRevision: HEAD
     path: helm/india-quiz
   destination:
