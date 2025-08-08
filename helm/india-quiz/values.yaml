@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: YOUR_DOCKERHUB_USERNAME/india-quiz
+  repository: learningdevops33/india-quiz
   pullPolicy: IfNotPresent
   tag: "latest"
 

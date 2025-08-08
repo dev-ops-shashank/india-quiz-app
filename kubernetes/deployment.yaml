@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: quiz-app
-        image: YOUR_DOCKERHUB_USERNAME/india-quiz:latest
+        image: learningdevops33/india-quiz:latest
         ports:
         - containerPort: 5000
         env:
